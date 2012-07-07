@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+      html {
+        background: #0a0a0a;
+      }
+      body {
+        font-family: 'Pontano Sans', sans-serif;
+        color: #F0FAFF;
+      }
+      a {
+        color: #0099CC;
+      }
+      #mr-div {
+        margin: 25px; text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mr-div">
+      <h1>FTFY</h1>
+      <a href="javascript:(function(){var b=document.getElementsByTagName("a"),c=/^http\:\/\/movies\.netflix\.com\/WiPlayer\?movieid=([\d]+)/,d=function(a){a.preventDefault();a.stopPropagation()},a;for(a=0;a<b.length;a++)c.test(b[a].href)&&(b[a].href="http://movies.netflix.com/WiMovie/"+b[a].href.match(c)[1],b[a].onmousedown=d,b[a].onclick=function(a){d(a);window.location.href=this.href})})();">Open Netflix movies in details view</a>
+    </div>
+  </body>
+</html>
