@@ -4,7 +4,7 @@
 // @version       0.1
 // @description   Prevents google from hijacking clicks and converting it to google tracking. 
 //                This will disable the block this site ability.
-// @match         https://encrypted.google.com/search*
+// @include       https://encrypted.google.com/search*
 // @copyright     2012+, Matthewpucc
 // ==/UserScript==
 
