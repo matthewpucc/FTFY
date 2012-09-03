@@ -1,7 +1,8 @@
 // ==UserScript==
 // @name          Fix google search links
 // @namespace     https://github.com/matthewpucc
-// @version       0.1
+// @version       0.2
+// @updateURL     https://raw.github.com/matthewpucc/FTFY/master/GoogleSearch/pwn.js
 // @description   Prevents google from hijacking clicks and converting it to google tracking. 
 //                This will disable the block this site ability.
 // @include       https://encrypted.google.com/search*
