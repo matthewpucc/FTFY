@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          Open Netflix Movies as Detail View
 // @namespace     https://github.com/matthewpucc
-// @version       0.4
+// @version       0.5
 // @updateURL     https://raw.github.com/matthewpucc/FTFY/master/NetflixFix/pwn.js
 // @description   This will rewrite the image links in the default netflix views to open the information page
 //                instead of forcing the movie/show to start playing. The makes managing a queue much easier 
