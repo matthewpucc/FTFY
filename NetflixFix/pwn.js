@@ -8,6 +8,7 @@
 // @include       http://*netflix.com/search*
 // @include       http://*netflix.com/*
 // @exclude       http://movies.netflix.com/WiPlayer*
+// @exclude       http://movies.netflix.com/WiMovie*
 // @copyright     2012+, matthewpucc, Beerware
 // ==/UserScript==
 
