@@ -23,7 +23,7 @@
 (function () {
   var aTags     = document.getElementsByTagName('a'),
   regex         = /^http\:\/\/movies\.netflix\.com\/WiPlayer\?movieid=([\d]+)/,
-  playClass     = /(\s|^)playLink(\s|$)/,
+  playClass     = /(?:\s|^)playLink(?:\s|$)/,
   stopIt        = function (e) { e.preventDefault(); e.stopPropagation(); },
   i;
 
