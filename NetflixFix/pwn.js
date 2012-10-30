@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name          Open Netflix Movies as Detail View
 // @namespace     https://github.com/matthewpucc
-// @version       0.7
+// @version       1.1
 // @updateURL     http://matthewpucc-db.s3.amazonaws.com/FTFY/NetflixFix/pwn.js
-// @description   This will rewrite the image links in the default netflix views to open the information page
-//                instead of forcing the movie/show to start playing. The makes managing a queue much easier 
+// @description   This will rewrite the image links in the default netflix views 
+//                to open the information page instead of forcing the movie/show
+//                to start playing. The makes managing a queue much easier.
 // @include       http://*netflix.com/search*
 // @include       http://*netflix.com/*
 // @exclude       http://movies.netflix.com/WiPlayer*
@@ -22,18 +23,20 @@
  */
 
 (function () {
-  var aTags     = document.getElementsByTagName('a'),
-  regex         = /^http\:\/\/movies\.netflix\.com\/WiPlayer\?movieid=([\d]+)/,
-  playClass     = /(?:\s|^)playLink(?:\s|$)/,
-  stopIt        = function (e) { e.preventDefault(); e.stopPropagation(); },
-  i;
+  var stopIt    = function (e) { e.preventDefault(); e.stopPropagation(); },
+      clickIt   = function (e) { stopIt(e); window.location.href = this.href; },
+      regex     = /^http\:\/\/movies\.netflix\.com\/WiPlayer\?movieid=([\d]+)/,
+      linkBase  = 'http://movies.netflix.com/WiMovie/',
+      aTags     = document.getElementsByTagName('a'),
+      playClass = /(?:\s|^)playLink(?:\s|$)/,
+      i         = aTags.length;
 
-  for (i = 0; i < aTags.length; i++) {
+  while (--i) {
     if (regex.test(aTags[i].href)) {
-      aTags[i].href         = 'http://movies.netflix.com/WiMovie/' + aTags[i].href.match(regex)[1];
-      aTags[i].className    = aTags[i].className.replace(playClass,' ');
+      aTags[i].className    = aTags[i].className.replace(playClass, ' ');
+      aTags[i].href         = linkBase + aTags[i].href.match(regex)[1];
       aTags[i].onmousedown  = stopIt;
-      aTags[i].onclick      = function (e) { stopIt(e); window.location.href = this.href; };
+      aTags[i].onclick      = clickIt;
     }
   }
 })();
