@@ -31,7 +31,7 @@
       playClass = /(?:\s|^)playLink(?:\s|$)/,
       i         = aTags.length;
 
-  while (--i) {
+  while (i--) {
     if (regex.test(aTags[i].href)) {
       aTags[i].className    = aTags[i].className.replace(playClass, ' ');
       aTags[i].href         = linkBase + aTags[i].href.match(regex)[1];
