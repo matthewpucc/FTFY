@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          Open Netflix Movies as Detail View
 // @namespace     https://github.com/matthewpucc
-// @version       1.1
+// @version       1.3
 // @updateURL     http://matthewpucc-db.s3.amazonaws.com/FTFY/NetflixFix/pwn.js
 // @description   This will rewrite the image links in the default netflix views 
 //                to open the information page instead of forcing the movie/show
@@ -25,18 +25,20 @@
 (function () {
   var stopIt    = function (e) { e.preventDefault(); e.stopPropagation(); },
       clickIt   = function (e) { stopIt(e); window.location.href = this.href; },
-      regex     = /^http\:\/\/movies\.netflix\.com\/WiPlayer\?movieid=([\d]+)/,
+      regex     = /^https?\:\/\/movies\.netflix\.com\/WiPlayer\?movieid=([\d]+)/,
       linkBase  = 'http://movies.netflix.com/WiMovie/',
-      aTags     = document.getElementsByTagName('a'),
+      aTags     = Array.prototype.slice.call(document.getElementsByTagName('a')),
       playClass = /(?:\s|^)playLink(?:\s|$)/,
-      i         = aTags.length;
+      i         = aTags.length,
+      tag;
 
   while (i--) {
-    if (regex.test(aTags[i].href)) {
-      aTags[i].className    = aTags[i].className.replace(playClass, ' ');
-      aTags[i].href         = linkBase + aTags[i].href.match(regex)[1];
-      aTags[i].onmousedown  = stopIt;
-      aTags[i].onclick      = clickIt;
+    tag = aTags[i];
+    if (regex.test(tag.href)) {
+      tag.className    = aTags[i].className.replace(playClass, ' ');
+      tag.href         = linkBase + tag.href.match(regex)[1];
+      tag.onmousedown  = stopIt;
+      tag.onclick      = clickIt;
     }
   }
 })();

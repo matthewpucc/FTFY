@@ -20,7 +20,7 @@
   <body>
     <div id="mr-div">
       <h1>FTFY</h1>
-      <a href="javascript:(function(){for(var c=function(a){a.preventDefault();a.stopPropagation()},e=function(a){c(a);window.location.href=this.href},d=/^http\:\/\/movies\.netflix\.com\/WiPlayer\?movieid=([\d]+)/,a=document.getElementsByTagName('a'),f=/(?:\s|^)playLink(?:\s|$)/,b=a.length;b--;)d.test(a[b].href)&&(a[b].className=a[b].className.replace(f,' '),a[b].href='http://movies.netflix.com/WiMovie/'+a[b].href.match(d)[1],a[b].onmousedown=c,a[b].onclick=e)})();">Open Netflix movies in details view</a>
+      <a href="javascript:(function(){for(var d=function(a){a.preventDefault();a.stopPropagation()},f=function(a){d(a);window.location.href=this.href},e=/^https?\:\/\/movies\.netflix\.com\/WiPlayer\?movieid=([\d]+)/,b=Array.prototype.slice.call(document.getElementsByTagName('a')),g=/(?:\s|^)playLink(?:\s|$)/,c=b.length,a;c--;)a=b[c],e.test(a.href)&&(a.className=b[c].className.replace(g,' '),a.href='http://movies.netflix.com/WiMovie/'+a.href.match(e)[1],a.onmousedown=d,a.onclick=f)})();">Open Netflix movies in details view</a>
     </div>
   </body>
 </html>
